@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hxds.odr.db.dao.OrderProfitsharingDao">
+    <insert id="insert" parameterType="com.example.hxds.odr.db.pojo.OrderProfitsharingEntity">
+        INSERT INTO tb_order_profitsharing
+        SET order_id = #{orderId},
+            rule_id = #{ruleId},
+            amount_fee = #{amountFee},
+            payment_rate = #{paymentRate},
+            payment_fee = #{paymentFee},
+            tax_rate = #{taxRate},
+            tax_fee = #{taxFee},
+            system_income = #{systemIncome},
+            driver_income = #{driverIncome},
+            `status` = 1
+    </insert>
+    <select id="searchDriverIncome" parameterType="String" resultType="HashMap">
+        SELECT p.id                        AS profitsharingId,
+               CAST(driver_income AS CHAR) AS driverIncome
+        FROM tb_order_profitsharing p
+                 JOIN tb_order o ON p.order_id = o.id
+        WHERE o.uuid = #{uuid};
+    </select>
+
+    <update id="updateProfitsharingStatus" parameterType="long">
+        UPDATE tb_order_profitsharing
+        SET `status`=2
+        WHERE id = #{profitsharingId}
+    </update>
+</mapper>

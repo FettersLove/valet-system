@@ -1,0 +1,29 @@
+spring:
+  profiles: common
+
+tencent:
+  cloud:
+    appId: 1315411067
+    secretId: AKIDwiIftb6iGdowKfv5Hcoz07DH3hJwvsla
+    secretKey: 7eCht3BGFHD95yKer386uVsiQwEKG2vm
+    region-public: ap-nanjing
+    bucket-public: hxds-public-1315411067
+    region-private: ap-nanjing
+    bucket-private: hxds-private-1315411067
+    face:
+      groupName: hxds
+      region: ap-nanjing
+  map:
+    key: SGMBZ-6ZALO-L6EWD-SZ4JK-HKMC2-Q3BQA
+wx:
+  app-id: wx4cb8e9621950da45
+  app-secret: 9d80f4125c50e1cf8bc6031c9319b2df
+  mch-id: 1526972031
+  key: qv9Kihy5TOJxGySzFO8pd4wCMg3tn6YK
+  cert-path: /root/hxds/apiclient_cert.p12
+
+minio:
+  endpoint: http://localhost:9000
+  access-key: root
+  secret-key: abc123456
+
